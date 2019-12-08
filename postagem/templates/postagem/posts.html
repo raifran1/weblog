@@ -1,0 +1,139 @@
+{% extends "core/base_principal.html" %} 
+{% block body %} 
+{% load widget_tweaks %}
+    {% if posts %}
+        <div class="jumbotron visible-sm visible-md visible-lg" style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+                <h2 align='center'>Olá, Boas vindas ao WeBLog Technology</h2>
+            <br>
+            <br>
+                <p>
+                    Seja um colaborador e realize uma publicação 
+                    assim você pode ajudar a comunidade com seu conhecimento, não importa se você é programador, estudante,
+                    professor ou só hobbista em qualquer área de tecnologia, publique aqui: 
+                    <ul>
+                        <li>Conhecimentos da sua Área de estudo</li>
+                        <li>Projetos com IA, IoT, Arduino</li>
+                        <li>Trabalhos Científicos</li>
+                        <li>Trabalhos Acadêmicos</li>
+                    </ul>
+                </p>
+                <a style="color: red;" align='center' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+            <br>
+            <br>
+            <div align='right'>
+                <h6>
+                    Por Administrador do WeBlog Technology
+                </h6>
+            </div>
+        </div>
+        {% for i in posts %}
+            <div class="jumbotron visible-sm visible-md visible-lg" style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+                    <h2>{{ i.titulo|title }}</h2>
+                <br>
+                <br>
+                    <p>{{ i.conteudo|linebreaksbr }}</p>
+                <br>
+                <br>
+                <div align='right'>
+                    <h6>
+                        Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+                    </h6>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="jumbotron visible-sm visible-md visible-lg" style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+                <h2 align='center'>Olá, Boas vindas ao WeBLog Technology</h2>
+            <br>
+            <br>
+                <p>
+                    Seja um colaborador e realize uma publicação 
+                    assim você pode ajudar a comunidade com seu conhecimento, não importa se você é programador, estudante,
+                    professor ou só hobbista em qualquer área de tecnologia, publique aqui: 
+                    <ul>
+                        <li>Conhecimentos da sua Área de estudo</li>
+                        <li>Projetos com IA, IoT, Arduino</li>
+                        <li>Trabalhos Científicos</li>
+                        <li>Trabalhos Acadêmicos</li>
+                    </ul>
+                </p>
+                <a style="color: red;" align='center' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+            <br>
+            <br>
+            <div align='right'>
+                <h6>
+                    Por Administrador do WeBlog Technology
+                </h6>
+            </div>
+        </div>
+    {% endif %}
+
+<!--Visible XS-->
+{% if posts %}
+<div class="jumbotron visible-xs" style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+    <h3 align='center'>Olá, Boas vindas ao WeBLog Technology</h3>
+    <br>
+    <br>
+        <p style="font-size: 15px;">
+            Seja um colaborador e realize uma publicação 
+            assim você pode ajudar a comunidade com seu conhecimento, não importa se você é programador, estudante,
+            professor ou só hobbista em qualquer área de tecnologia, publique aqui: 
+            <ul>
+                <li>Conhecimentos da sua Área de estudo</li>
+                <li>Projetos com IA, IoT, Arduino</li>
+                <li>Trabalhos Científicos</li>
+                <li>Trabalhos Acadêmicos</li>
+            </ul>
+        </p>
+        <a style="color: red;" align='center' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+    <br>
+    <br>
+    <div align='right'>
+        <h6>
+            Por Administrador do WeBlog Technology
+        </h6>
+    </div>
+</div>
+{% for i in posts %}
+    <div class="jumbotron visible-xs style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+            <h4 align='center'>{{ i.titulo|title }}</h4>
+        <br>
+        <br>
+            <p style="font-size: 15px;">{{ i.conteudo|linebreaksbr }}</p>
+        <br>
+        <br>
+        <div align='right'>
+            <h6>
+                Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+            </h6>
+        </div>
+    </div>
+{% endfor %}
+{% else %}
+        <div class="jumbotron visible-xs" style="padding-top: 15px; padding-block-end: 15px;background-color: #E0FFFF;">
+                <h3 align='center'>Olá, Boas vindas ao WeBLog Technology</h3>
+            <br>
+            <br>
+                <p style="font-size: 15px;">
+                    Seja um colaborador e realize uma publicação 
+                    assim você pode ajudar a comunidade com seu conhecimento, não importa se você é programador, estudante,
+                    professor ou só hobbista em qualquer área de tecnologia, publique aqui: 
+                    <ul>
+                        <li>Conhecimentos da sua Área de estudo</li>
+                        <li>Projetos com IA, IoT, Arduino</li>
+                        <li>Trabalhos Científicos</li>
+                        <li>Trabalhos Acadêmicos</li>
+                    </ul>
+                </p>
+                <a style="color: red;" align='center' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+            <br>
+            <br>
+            <div align='right'>
+                <h6>
+                    Por Administrador do WeBlog Technology
+                </h6>
+            </div>
+        </div>
+{% endif %}
+<!--/Visible XS-->
+{% endblock body %}

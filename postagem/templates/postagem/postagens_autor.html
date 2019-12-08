@@ -1,0 +1,100 @@
+{% extends "core/base_principal.html" %} 
+{% block body %} 
+{% load widget_tweaks %}
+    <div class="jumbotron visible-sm visible-md visible-lg">
+        <h3 align='center'>Legenda:</h3>
+        <h4 style="color: red;"><kbd style="background-color: red;">Vermelho</kbd>: Rascunho</h4>
+        <h4 style="color: blue;"><kbd style="background-color: blue;">Azul</kbd>: Publicado</h4>
+    </div>
+    {% if posts %}
+        {% for i in posts %}
+            {% if i.status == 'Rascunho' %}
+                <div class="jumbotron visible-sm visible-md visible-lg" style="padding-top: 15px; padding-block-end: 15px; color: red;background-color: #E0FFFF;">
+                        <h2>{{ i.titulo|title }}</h2>
+                    <br>
+                    <br>
+                        <p>{{ i.conteudo|linebreaksbr }}</p>
+                    <br>
+                    <br>
+                    <div align='right'>
+                        <h6>
+                            Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+                        </h6>
+                    </div>
+                    <div align='center'>
+                            <a class="btn btn-primary btn-xs" href="/editar/post/{{ i.id }}/">Editar</a>
+                            <a class="btn btn-danger btn-xs" href="/deletar/post/{{ i.id }}/">Excluir</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="jumbotron visible-sm visible-md visible-lg" style="padding-top: 15px; padding-block-end: 15px; color: blue;background-color: #E0FFFF;">
+                        <h2>{{ i.titulo|title }}</h2>
+                    <br>
+                    <br>
+                        <p>{{ i.conteudo|linebreaksbr }}</p>
+                    <br>
+                    <br>
+                    <div align='right'>
+                        <h6>
+                            Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+                        </h6>
+                    </div>
+                    <div align='center'>
+                            <a class="btn btn-primary btn-xs" href="/editar/post/{{ i.id }}/">Editar</a>
+                            <a class="btn btn-danger btn-xs" href="/deletar/post/{{ i.id }}/">Excluir</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    
+<!--Visible XS-->
+    <div class="jumbotron visible-xs">
+        <h4 align='center'>Legenda:</h4>
+        <h5 style="color: red;"><kbd style="background-color: red;">Vermelho</kbd>: Rascunho</h5>
+        <h5 style="color: blue;"><kbd style="background-color: blue;">Azul</kbd>: Publicado</h5>
+    </div>
+    {% if posts %}
+        {% for i in posts %}
+            {% if i.status == 'Rascunho' %}
+                <div class="jumbotron visible-xs" style="padding-top: 15px; padding-block-end: 15px; color: red;background-color: #E0FFFF;">
+                        <h4 align='center'>{{ i.titulo|title }}</h4>
+                    <br>
+                    <br>
+                        <p style="font-size: 15px;">{{ i.conteudo|linebreaksbr }}</p>
+                    <br>
+                    <br>
+                    <div align='right'>
+                        <h6>
+                            Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+                        </h6>
+                    </div>
+                    <div align='center'>
+                            <a class="btn btn-primary btn-xs" href="/editar/post/{{ i.id }}/">Editar</a>
+                            <a class="btn btn-danger btn-xs" href="/deletar/post/{{ i.id }}/">Excluir</a>
+                    </div>
+                </div>
+            {% else %}
+                <div class="jumbotron visible-xs" style="padding-top: 15px; padding-block-end: 15px; color: blue;background-color: #E0FFFF;">
+                        <h4 align='center'>{{ i.titulo|title }}</h4>
+                    <br>
+                    <br>
+                        <p style="font-size: 15px;">{{ i.conteudo|linebreaksbr }}</p>
+                    <br>
+                    <br>
+                    <div align='right'>
+                        <h6>
+                            Por {{ i.autor|upper }}, em {{ i.dt_publicacao|date:'d/m/Y' }} às {{ i.dt_publicacao|time }}
+                        </h6>
+                    </div>
+                    <div align='center'>
+                            <a class="btn btn-primary btn-xs" href="/editar/post/{{ i.id }}/">Editar</a>
+                            <a class="btn btn-danger btn-xs" href="/deletar/post/{{ i.id }}/">Excluir</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+<!--/Visible XS-->
+{% endblock body %}
