@@ -17,9 +17,12 @@
                         <li>Trabalhos Acadêmicos</li>
                     </ul>
                 </p>
+                {% if user.is_authenticated %}
+                {% else %}
                 <div  align='center'>
                     <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
                 </div>
+                {% endif %}
             <br>
             <br>
             <div align='right'>
@@ -59,9 +62,12 @@
                         <li>Trabalhos Acadêmicos</li>
                     </ul>
                 </p>
-                <div  align='center'>
-                    <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
-                </div>
+                {% if user.is_authenticated %}
+                {% else %}
+                    <div  align='center'>
+                        <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+                    </div>
+                {% endif %}
             <br>
             <br>
             <div align='right'>
@@ -89,9 +95,12 @@
                 <li>Trabalhos Acadêmicos</li>
             </ul>
         </p>
-        <div  align='center'>
-            <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
-        </div>
+        {% if user.is_authenticated %}
+        {% else %}
+            <div  align='center'>
+                <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+            </div>
+        {% endif %}
     <br>
     <br>
     <div align='right'>
@@ -131,9 +140,12 @@
                         <li>Trabalhos Acadêmicos</li>
                     </ul>
                 </p>
-                <div  align='center'>
-                    <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
-                </div>
+                {% if user.is_authenticated %}
+                {% else %}
+                    <div  align='center'>
+                        <a class='btn btn-danger btn-sm' href="/accounts/cadastro/autor/">Clique Aqui e cadastre-se</a>
+                    </div>
+                {% endif %}
             <br>
             <br>
             <div align='right'>
