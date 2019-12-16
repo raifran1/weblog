@@ -1,6 +1,6 @@
 from django import forms
 from .models import Postagem
-from autor.models import Autor
+
 
 
 class PostagemForm(forms.ModelForm):
