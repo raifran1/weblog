@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 from autor.models import Autor
 
 
-def add_user(request,id_autor):
-    autor = Autor.objects.get(id = id_autor)
+def add_user(request, id_autor):
+    autor = Autor.objects.get(id=id_autor)
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
@@ -23,14 +23,14 @@ def add_user(request,id_autor):
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
-                return redirect(request.GET.get('next','/'))
+                return redirect(request.GET.get('next', '/'))
                 
         else:
             print(form.errors)
             messages.error(request, form.errors)
     else:
         form = UserForm()
-    return render(request, 'accounts/add_user.html', {'form': form,'autor':autor})
+    return render(request, 'accounts/add_user.html', locals())
 
 
 def user_login(request):
@@ -59,22 +59,22 @@ def alterar_senha(request):
             messages.error(request, f'{form.errors}')
     else:
         form = PasswordChangeForm(request.user)
-    return render(request, 'accounts/alterar_senha.html', {'form': form})
+    return render(request, 'accounts/alterar_senha.html', locals())
 
 @login_required
 def editar_user(request):
-    usuario = User.objects.get(id = request.user.id)
+    usuario = User.objects.get(id=request.user.id)
     if request.method == 'POST':     
         form = UserForm(data=request.POST, instance=usuario)
         if form.is_valid():
             f = form.save(commit=False)
             f.save()
-            return redirect(request.GET.get('next','/'))
+            return redirect(request.GET.get('next', '/'))
         else:
             print(form.errors)
     else:
         form = UserForm(instance=usuario)
-    return render(request,'accounts/editar_user.html',{'form':form})
+    return render(request, 'accounts/editar_user.html', locals())
 
 
 def user_logout(request):

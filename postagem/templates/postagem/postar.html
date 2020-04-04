@@ -20,8 +20,8 @@
                 <input class='form-control' name='dt_criacao' type='text' value='{{ data|date:"d/m/Y" }}' readonly> 
             </div>
             <div class="form-group">
-                <label for="{{ form.dt_publicacao.id_for_label }}">Data de Publicação</label>
-                <input class='form-control' name='dt_publicacao' type='text' value='{{ data|date:"d/m/Y" }}' readonly> 
+<!--                <label for="{{ form.dt_publicacao.id_for_label }}">Data de Publicação</label>-->
+                <input class='form-control' name='dt_publicacao' type='hidden' value='{{ data|date:"d/m/Y" }}' readonly>
             </div>
             <div class="form-group">
                 <label for="{{ form.status.id_for_label }}">Status</label>

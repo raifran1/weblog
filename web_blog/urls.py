@@ -21,10 +21,10 @@ from autor import urls as autor_urls
 from postagem import urls as postagem_urls
 
 urlpatterns = [
+    path('jet/',  include('jet.urls', 'jet')),
     path('admin/', admin.site.urls),
-    #path('', views.index),
     path('contato/', views.contato),
-    path('accounts/',include(accounts_urls)),
-    path('autor/',include(autor_urls)),
-    path('',include(postagem_urls)),
+    path('accounts/', include(accounts_urls)),
+    path('autor/', include(autor_urls)),
+    path('', include(postagem_urls)),
 ]
